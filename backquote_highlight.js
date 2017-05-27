@@ -24,13 +24,11 @@ $(document).ready(function() {
                 var lang = '';
                 var start_idx = 2;
                 if (matches[1]) {
-                    alert(matches[2]);
                     lang += matches[1].substr(0, 12);
                     start_idx += matches[1].length + matches[2].length;
                 }
 
                 var code = '<code class="language-' + lang + '">' + matches[0].substring(start_idx, matches[0].length - 2) + '</code>';
-                alert(code);
                 lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], code);
 
                 matches = re.exec(line_buf);
