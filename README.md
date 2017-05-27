@@ -1,7 +1,7 @@
 # backquote_highlight
 
 
-글을 작성할 때 highlighting처리 하고 싶은 부분을 markdown처럼 \`\`\`로 감싸면 본문에서 이를 인식해 `<div><pre><code class="language-*>`로 치환해준다.  
+글을 작성할 때 highlighting처리 하고 싶은 부분을 markdown처럼 \`\`\`*로 감싸면 본문에서 이를 인식해 `<div><pre><code class="language-*>`로 치환해준다.  
 highlight plugin을 사용할 때 매번 HTML을 작성하기 귀찮아서 만들었기 때문에 단순히 치환하는 기능만 있고 자체 highlighting 기능은 없다.  
 따라서, highlightjs나 prismjs 등 HTML5 표준 문법을 지키는 highlight plugin과 함께 사용해야 한다.  
 inline highlighting은 \`를 사용해야 하는 경우가 있어 \`\`로 지정했다.  
