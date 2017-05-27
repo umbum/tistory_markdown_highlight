@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    var lines = $('div.article > div > p');
+    var lines = $('div.article > div p:not(:has(*)), div.article > div div:not(:has(*))');
     var re = /``(?:([0-9a-z\-]*)\s)?.*?``/g;
     for (var i = 0; i < lines.length; i++){
         if( lines[i].innerText.startsWith('```')){
             for ( var j = i+1; j < lines.length; j++){
-
+ 
                 if (lines[j].innerText.startsWith('```')){
                     wrapping(lines, i, j);
-                    i = j+1;
+                    i = j;
                     break;
                 }
             }
