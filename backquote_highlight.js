@@ -2,7 +2,6 @@ $(document).ready(function () {
     var lines = $('div.article > div > p');
     var re = /``(?:([0-9a-z\-]*)\s)?.*?``/g;
     for (var i = 0; i < lines.length; i++){
-
         if( lines[i].innerText.startsWith('```')){
             for ( var j = i+1; j < lines.length; j++){
 
@@ -18,13 +17,11 @@ $(document).ready(function () {
 
             while(matches){
                 var k = '';
-
+                var lang = '';
+                var start_idx = 2;
                 if(matches[1]){
-                    var lang = matches[1];
-                    var start_idx = 3+matches[1].length;
-                }else{
-                    var lang = undefined;
-                    var start_idx = 2;
+                    lang += matches[1].substr(0, 12);
+                    start_idx += matches[1].length+1;
                 }
 
                 var escaped = matches[0].replace('<', '&lt;').replace('>', '&gt;');
