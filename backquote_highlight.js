@@ -13,12 +13,11 @@ $(document).ready(function () {
                 }
             }
         } else {
-            var matches = re.exec(lines[i].innerText);
+            var line_buf = lines[i].innerText;
+            var matches = re.exec(line_buf);
+
             while(matches){
                 var k = '';
-                matches.forEach(function (item, index){
-                    k += index + ": " + "{"+ item + "}"+"\n";
-                });
 
                 if(matches[1]){
                     var lang = matches[1];
@@ -28,13 +27,11 @@ $(document).ready(function () {
                     var start_idx = 2;
                 }
 
-                var bq_inner = matches[0].substring(start_idx, matches[0].length-2);
-                bq_inner = bq_inner.replace('<', '&lt;');
-                bq_inner = bq_inner.replace('>', '&gt;');
-                var code = '<code class="language-'+lang+'">'+bq_inner+'</code>';
-                lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], code);
+                var escaped = matches[0].replace('<', '&lt;').replace('>', '&gt;');
+                var code = '<code class="language-'+lang+'">'+escaped.substring(start_idx, escaped.length-2)+'</code>';
+                lines[i].innerHTML = lines[i].innerHTML.replace(escaped, code);
 
-                matches = re.exec(lines[i].innerText);
+                matches = re.exec(line_buf);
             }
         }
     }
