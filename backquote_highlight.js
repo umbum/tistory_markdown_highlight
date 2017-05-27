@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var lines = $('div.article > div p, div.article > div div:not(:has(div))');
-    var re = /``(?:([0-9a-z\-]*)\s)?.*?``/g;
+    var re = /``(?:([0-9a-z\-]*)(\s|(&nbsp;)))?.*?``/g;
     for (var i = 0; i < lines.length; i++) {
         if (lines[i].innerText.startsWith('```')) {
 
@@ -24,11 +24,13 @@ $(document).ready(function() {
                 var lang = '';
                 var start_idx = 2;
                 if (matches[1]) {
+                    alert(matches[2]);
                     lang += matches[1].substr(0, 12);
-                    start_idx += matches[1].length + 1;
+                    start_idx += matches[1].length + matches[2].length;
                 }
 
                 var code = '<code class="language-' + lang + '">' + matches[0].substring(start_idx, matches[0].length - 2) + '</code>';
+                alert(code);
                 lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], code);
 
                 matches = re.exec(line_buf);
