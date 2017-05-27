@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var lines = $('div.article > div p, div.article > div div:not(:has(div))');
+    var lines = $('div.article > div p, div.article > div div:not(:has(div,p))');
     var re = /``(?:([0-9a-z\-]*)(\s|(&nbsp;)))?.*?``/g;
     for (var i = 0; i < lines.length; i++) {
         if (lines[i].innerText.startsWith('```')) {
