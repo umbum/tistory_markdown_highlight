@@ -19,7 +19,7 @@ script src=jQuery
 ### Block highlighting
 \`\`\`python  
 def foo:
-    bar = 1
+    bar = 1  
 \`\`\`  
 =>  
 ```python
