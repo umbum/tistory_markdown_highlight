@@ -13,7 +13,7 @@ jQuery를 사용했기 때문에, jQuery를 불러오는 부분보다 더 아래
 ```
 script src=jQuery
 ...
-<script src="./images/backquote_highlight.min.js"></script>
+<script defer src="./images/backquote_highlight.min.js" onload="bq_highlight"></script>
 ```
 
 ### Block highlighting
