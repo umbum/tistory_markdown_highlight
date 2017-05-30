@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function bq_highlight() {
     var lines = $('div.article > div p, div.article > div div:not(:has(div,p))');
     var re = /``(?:([0-9a-z\-]*)(\s|(&nbsp;)))?.*?``/g;
     for (var i = 0; i < lines.length; i++) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
             }
         }
     }
-});
+}
 
 function wrapping(lines, i, j) {
     var lang = lines[i].innerText.substr(3, 15)
