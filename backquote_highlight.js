@@ -23,7 +23,15 @@ function bq_highlight() {
                 if (matches[1]) {
                     lang = matches[1].substr(0, 12);
                 }
-                var code = '<code class="language-' + lang + '">' + matches[3] + '</code>';
+
+                if(matches[1] && matches[3] === ''){
+                    // backward capability ``code``
+                    var code = '<code class="language-' + lang + '">' + matches[1] + '</code>';
+                }
+                else {
+                    var code = '<code class="language-' + lang + '">' + matches[3] + '</code>';
+                }
+                
                 lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], code);
 
                 matches = re.exec(line_buf);
