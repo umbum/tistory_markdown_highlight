@@ -1,6 +1,6 @@
 function bq_highlight() {
     var lines = $('div.article > div p, div.article > div li, div.article > div div:not(:has(div,p))');
-    var re = /``([0-9a-z\-]*)?(\s|(?:&nbsp;))?(.*?)``/g;
+    var re = /``(?:([0-9a-z\-]*)(\s|(?:&nbsp;)))?(.*?)``/g;
     for (var i = 0, lines_length = lines.length; i < lines_length; i++) {
         if (lines[i].innerText.startsWith('```')) {
 
@@ -24,17 +24,15 @@ function bq_highlight() {
                 if (matches[1]) {
                     lang = matches[1].substr(0, 12);
                 }
-                console.log(matches[1])
-                console.log(matches[2])
-                console.log(matches[3])
-                if(matches[1] && matches[3] === ''){
-                    // backward capability ``code``
+
+                if(matches[3] === ''){
+                    console.log("``lang `` is invalid syntax");
                     code = matches[1];
                 }
-                else {
+                else{
                     code = matches[3];
                 }
-
+                
                 var inline_highlight = '<code class="language-' + lang + '">' + code + '</code>';
                 lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], inline_highlight);
 
