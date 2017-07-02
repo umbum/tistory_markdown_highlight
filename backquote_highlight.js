@@ -19,20 +19,24 @@ function bq_highlight() {
             var line_buf = lines[i].innerHTML;
             var matches = re.exec(line_buf);
             var lang = '';
+            var code = '';
             while (matches) {
                 if (matches[1]) {
                     lang = matches[1].substr(0, 12);
                 }
-
+                console.log(matches[1])
+                console.log(matches[2])
+                console.log(matches[3])
                 if(matches[1] && matches[3] === ''){
                     // backward capability ``code``
-                    var code = '<code class="language-' + lang + '">' + matches[1] + '</code>';
+                    code = matches[1];
                 }
                 else {
-                    var code = '<code class="language-' + lang + '">' + matches[3] + '</code>';
+                    code = matches[3];
                 }
-                
-                lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], code);
+
+                var inline_highlight = '<code class="language-' + lang + '">' + code + '</code>';
+                lines[i].innerHTML = lines[i].innerHTML.replace(matches[0], inline_highlight);
 
                 matches = re.exec(line_buf);
             }
