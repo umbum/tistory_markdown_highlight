@@ -43,7 +43,7 @@ function bq_highlight() {
 }
 
 function block_highlight(lines, i, j) {
-    var lang = lines[i].innerText.substr(3, 15)
+    var lang = lines[i].innerText.substr(3, 15);
     var div_pre_code = $('<div><pre><code class="language-' + lang + '"></code></pre></div>');
     var code = $(div_pre_code).children().children();
 
