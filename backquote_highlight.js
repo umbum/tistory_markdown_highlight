@@ -24,6 +24,7 @@ function bq_highlight() {
                 if (matches[1]) {
                     lang = matches[1].substr(0, 12);
                 }
+                else lang = '';
 
                 if(matches[3] === ''){
                     console.log("``lang `` is invalid syntax");
