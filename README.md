@@ -1,6 +1,6 @@
 # tistory_markdown_highlight
   
-티스토리 에디터에서 글 작성 시, 마크다운 문법의 코드 하이라이팅을 지원한다.  
+티스토리 에디터에서 글 작성 시, 마크다운 문법으로 코드 하이라이팅 할 수 있도록 지원하는 플러그인이다.  
 highlighting 기능을 적용하기 위해서 매번 HTML tag를 입력하는 것이 귀찮아서 만들었기 때문에  
 **단순히 치환하는 기능만 있고 자체 highlighting 기능은 없다.**  
 **따라서, highlightjs나 prismjs같은 HTML5 표준 문법을 지키는 highlight plugin과 함께 사용해야 한다.**  
