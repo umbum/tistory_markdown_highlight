@@ -49,7 +49,7 @@ function block_highlight(lines, i, j) {
     var code = $(div_pre_code).children().children();
 
     for (var k = i + 1; k < j; k++) {
-        code.append(lines[k].innerHTML + "\n");
+        code.append(lines[k].innerHTML === "<br>" ? "\n" : lines[k].innerHTML + "\n");
         $(lines[k]).remove();
     }
     $(lines[i]).after(div_pre_code);
