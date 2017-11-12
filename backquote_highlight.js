@@ -1,11 +1,10 @@
 function bq_highlight() {
     var lines = $('div.article > div p, div.article > div li, div.article > div div:not(:has(div,p))');
     var re = /``(?:([0-9a-z\-]*)(\s|(?:&nbsp;)))?(.*?)``/g;
+    
     for (var i = 0, lines_length = lines.length; i < lines_length; i++) {
         if (lines[i].innerText.startsWith('```')) {
-
             for (var j = i + 1; j < lines_length; j++) {
-
                 if (lines[j].innerText.startsWith('```')) {
                     block_highlight(lines, i, j);
                     i = j;
@@ -21,10 +20,7 @@ function bq_highlight() {
             var lang = '';
             var code = '';
             while (matches) {
-                if (matches[1]) {
-                    lang = matches[1].substr(0, 12);
-                }
-                else lang = '';
+                lang = (matches[1]) ? matches[1].substr(0, 12) : '';
 
                 if(matches[3] === ''){
                     console.log("``lang `` is invalid syntax");
