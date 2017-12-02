@@ -1,5 +1,5 @@
 function bq_highlight() {
-    var lines = $('div.article > div p, div.article > div li, div.article > div div:not(:has(div,p))');
+    var lines = $('div.tt_article_useless_p_margin p, div.tt_article_useless_p_margin li, div.tt_article_useless_p_margin div:not(:has(div,p))');
     var re = /``(?:([0-9a-z\-]*)(\s|(?:&nbsp;)))?(.*?)``/g;
     
     for (var i = 0, lines_length = lines.length; i < lines_length; i++) {
