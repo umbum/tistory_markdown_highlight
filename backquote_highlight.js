@@ -1,4 +1,6 @@
 function bq_highlight() {
+    highlight_codeblock_with_prism()
+
     var lines = $('div.tt_article_useless_p_margin p, div.tt_article_useless_p_margin li, div.tt_article_useless_p_margin div:not(:has(div,p))');
     var re = /``(?:([0-9a-z\-]*)(\s|(?:&nbsp;)))?(.*?)``/g;
     
@@ -54,3 +56,11 @@ function block_highlight(lines, i, j) {
 
 }
 
+function highlight_codeblock_with_prism() {
+    const pre_doms = $('article pre:has(code)[data-ke-language]')
+    for (let pre_dom of pre_doms) {
+        const lang = pre_dom.getAttribute('data-ke-language')
+        const code_dom = $(pre_dom).children('code')
+        code_dom.addClass('language-' + lang)
+    }
+}
